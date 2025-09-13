@@ -4,6 +4,15 @@
   border: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+p {
+  text-indent: 2rem;
+}
+
+ul li::marker {
+  color: #56777d;
+}
+
 .menu {
   background-color: #001bff;
   height: 80px;
@@ -11,7 +20,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* position: absolute; */
+  position: fixed;
+  top: 0;
+  z-index: 1000;
 }
 .nav-bar ul {
   display: flex;
@@ -45,6 +56,7 @@
   flex-direction: column;
   align-items: center;
   padding: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .container-header-questions ul {
@@ -64,11 +76,13 @@
 }
 
 .drop-down-btn {
-  width: 100%;
+  width: 100vw;
   padding: 0.5rem;
   background-color: #f7931d;
   color: #fff;
   font-weight: 700;
+  display: block;
+  cursor: pointer;
 }
 
 .box-options {
@@ -85,21 +99,300 @@
   gap: 0.2rem;
 }
 
-.learning-options ul li::marker {
-  color: #56777d;
-}
-
 .drop-down-btn:hover {
   background-color: #cf7a19ec;
 }
 
 .header {
+  margin-top: 80px;
   height: 65vh;
   width: 100vw;
   background-image: url(./img/header.png);
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
   justify-content: center;
+}
+
+.main {
+  width: 80%;
+  padding: 5rem 4rem;
+}
+
+.introduction-box-equation {
+  width: 34rem;
+}
+
+.title-equation {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.title-equation h1 {
+  color: #007ec5;
+}
+
+.introduction-box-equation p {
+  text-align: justify;
+  width: 30rem;
+}
+
+.container-explanation-equation {
+  margin: 2rem 0;
+  flex-direction: column;
+}
+
+.box-definition-equation-title {
+  margin-bottom: 2rem;
+}
+
+.box-definition-equation-title h1 {
+  color: #00a786;
+  font-size: 1.5rem;
+}
+.box-definition-equation-title p {
+  margin-top: 1rem;
+  text-align: justify;
+  width: 30rem;
+}
+
+.example-equation-explanation {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 6rem;
+}
+
+.img-example-equation {
+  padding-left: 4rem;
+}
+
+.glossary-container {
+  cursor: pointer;
+}
+
+.glossary-box {
+  display: none;
+  background-color: #fff690;
+  width: 11.5rem;
+  padding: 1rem 0.5rem;
+  box-shadow: 0rem 0.2rem 4px rgba(0, 0, 0, 0.288);
+}
+
+.glossary-box p {
+  text-align: justify;
+}
+
+.equation-terms {
+  margin-left: 3rem;
+}
+
+.equation-terms ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.example-equation-terms p {
+  text-align: justify;
+  width: 30rem;
+  margin-bottom: 2rem;
+}
+
+.application-terms-equation ul {
+  display: flex;
+  flex-direction: column;
+  justify-items: end;
+  gap: 1rem;
+  margin-left: 2rem;
+}
+
+.questions ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-left: 1rem;
+}
+
+.line-questions {
+  border: none;
+  border-top: 2px solid #9d9d9d;
+  width: 100%;
+}
+
+.questions ul li {
+  font-size: large;
+}
+
+.questions ul li span {
+  font-weight: bold;
+  font-size: large;
+  color: #76b82a;
+}
+
+.questions .water-cycle {
+  width: 50vw;
+  height: auto;
+  cursor: pointer;
+}
+
+#light-box {
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  width: 80%;
+  height: 100%;
+  z-index: 1001;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+}
+
+#light-box.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#light-box img {
+  cursor: pointer;
+}
+
+.bodyActive {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 601px) and (max-width: 1023px) {
+  .container-header-questions {
+    width: 55vw;
+  }
+
+  .glossary-container {
+    position: relative;
+  }
+
+  .glossary-box {
+    z-index: 1000;
+    position: absolute;
+    top: 100%;
+    right: 100%; /* aparece do lado direito */
+  }
+
+  #light-box img {
+    width: 70vw;
+    height: auto;
+  }
+}
+
+/* Evita scroll horizontal */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Corrige o menu fixo (100vw -> 100%) */
+.menu {
+  width: 100%;
+}
+
+/* Alinha imagem e ícone lado a lado */
+.example-equation-explanation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.img-example-equation {
+  max-width: 14rem;
+  height: auto;
+}
+
+.glossary-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.exclamation-icon {
+  width: 2rem;
+  height: auto;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .main {
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  p,
+  li {
+    font-size: smaller;
+  }
+
+  h1 {
+    font-size: medium;
+  }
+
+  .container-header-questions {
+    width: 90%;
+    height: auto;
+    margin-left: 0;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  .box-check-in {
+    width: 60%;
+    padding: 0.3rem 1rem;
+    font-size: small;
+  }
+
+  .introduction-box-equation,
+  .box-definition-equation-title,
+  .box-definition-equation-title p,
+  .example-equation-terms p {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .example-equation-explanation {
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .img-example-equation {
+    width: 9rem;
+  }
+
+  .questions .water-cycle {
+    width: 90%;
+  }
+
+  .box-definition-equation-title h1 {
+    font-size: small;
+  }
+
+  #light-box img {
+    width: 80vw;
+    height: auto;
+  }
 }
